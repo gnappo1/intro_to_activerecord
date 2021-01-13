@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_232227) do
+ActiveRecord::Schema.define(version: 2021_01_12_232048) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "datetime"
     t.string "location"
-    t.integer "patient_id", null: false
-    t.integer "physician_id", null: false
+    t.integer "patient_id"
+    t.integer "physician_id"
     t.boolean "scheduled", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -39,4 +39,6 @@ ActiveRecord::Schema.define(version: 2021_01_07_232227) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "appointments", "patients", on_delete: :cascade
+  add_foreign_key "appointments", "physicians", on_delete: :cascade
 end

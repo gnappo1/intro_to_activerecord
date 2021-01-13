@@ -8,8 +8,8 @@ class CreateAppointments < ActiveRecord::Migration[6.1]
     create_table :appointments do |t|
       t.datetime :datetime
       t.string :location
-      t.belongs_to :patient, null: false, dependent: :delete
-      t.belongs_to :physician, null: false, dependent: :delete
+      t.references :patient
+      t.belongs_to :physician
       t.boolean :scheduled, default: false
       t.timestamps
     end

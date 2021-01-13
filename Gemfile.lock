@@ -64,8 +64,10 @@ PLATFORMS
 
 DEPENDENCIES
   pry
+  rack
   rake
   require_all
+  sinatra
   sinatra-activerecord
   sqlite3
   tux
